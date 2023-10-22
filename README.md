@@ -19,7 +19,7 @@ By leveraging custom loss functions, evaluation metrics, and hyperparameter tuni
 Hyperparameter tuning have been done with Ray Tune. It specifies the search space for the learning rate and sets the stopping criteria.
 The tuner fits the model using the defined configuration and returns the best hyperparameters found.
 
-# 4. MNIST-Sequential
+# 4. MNIST
 
 This code demonstrates the construction and training of a neural network model for handwritten digit classification using the MNIST dataset.
 By leveraging the TensorFlow and Keras libraries, the code showcases a straightforward implementation of a deep learning model, providing insights into the training progress and performance through visualizations.
