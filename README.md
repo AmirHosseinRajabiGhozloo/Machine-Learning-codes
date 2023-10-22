@@ -3,7 +3,7 @@ This repository contains a collection of programming projects implemented in Pyt
 
 # 1. COVID-Detection
 
-This code demonstrates the process of building an image classification model using transfer learning with the InceptionResNetV2 architecture.
+This code demonstrates the process of building an image classification model using transfer learning with the InceptionResNet architecture.
 It preprocesses the training data, constructs the model, and compiles it for training. 
 The code provides a foundation for further training and evaluating the model on the given COVID-19 and Non-COVID-19 image dataset.
 
