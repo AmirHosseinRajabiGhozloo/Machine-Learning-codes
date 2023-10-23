@@ -1,7 +1,7 @@
 # Python-Codes
 This repository contains a collection of programming projects implemented in Python. These projects cover different subjects, with a focus on image segmentation and computer vision.
 
-# 1. Permeability-Predictiopn
+# 1. Permeability-Prediction
 
 Prediction of the drilling rate of penetration (ROP) is crucial for maximizing the drilling speed and efficiency. This paper proposes a novel intelligent boosted neural network (called GAN-boosted MLP) to predict the ROP using the petrophysical and drilling parameters. This model is trained through two stepwise stages. In the first stage, the boosting structure (GAN) of the model is created and trained with the target (ROP feature) of the training dataset. This boosting structure enhances the model’s capability to understand the process complexity. In the second stage, the MLP network coupled with the boosting structure is trained with all of the training dataset. The proposed GAN-boosted MLP model provides accurate ROP prediction with both testing and blind datasets. To highlight the superiority of the proposed procedure, a neural network with a similar architecture and without a boosting section, MLP, is also trained and tested. The results show that the proposed GAN-boosted MLP network is more successful in ROP estimation than the original non-boosted network.
 
