@@ -108,7 +108,7 @@ with tqdm(total=len(img_list), desc="Progress", bar_format="{l_bar}{bar} [ time 
         fig = plt.imshow(i,cmap='gray')
         fig.axes.get_xaxis().set_visible(False)
         fig.axes.get_yaxis().set_visible(False)
-        plt.savefig("D:/hassan sharifi/milad's project/img_resize/sample_"+str(index)+'.png',transparent=True)
+        plt.savefig("D:/AmirRajabi/Perm-Pred/img_resize/sample_"+str(index)+'.png',transparent=True)
         index+=1
         pbar.update(1)
 '''
