@@ -35,17 +35,17 @@ def R(true,predicted):
     R = (np.sum((true-true.mean())*(predicted-predicted.mean())))/(np.sqrt((np.sum((true-true.mean())**2))*np.sum((true-true.mean())**2)))
     return R
 
-df = pd.read_excel("D:/hassan sharifi/milad's project/img/data.xlsx")
+df = pd.read_excel("D:/AmirRajabi/Perm-Pred/img/data.xlsx")
 orig_df = df.copy()
 df
 
 # new data = train+test+blind
-df = pd.read_excel("D:/hassan sharifi/milad's project/new_data.xlsx")
+df = pd.read_excel("D:/AmirRajabi/Perm-Pred/new_data.xlsx")
 orig_df = df.copy()
 df
 
 # new data = train+test+blind
-df = pd.read_excel("D:/hassan sharifi/milad's project/new_data_2.xlsx")
+df = pd.read_excel("D:/AmirRajabi/Perm-Pred/new_data_2.xlsx")
 orig_df = df.copy()
 df
 
@@ -483,7 +483,7 @@ plt.ylabel('Value')
 
 """**blind well data**"""
 
-df_bw = pd.read_excel("D:/hassan sharifi/milad's project/img_b/data_bw.xlsx")
+df_bw = pd.read_excel("D:/AmirRajabi/Perm-Pred/img_b/data_bw.xlsx")
 orig_df_bw = df_bw.copy()
 df_bw
 
