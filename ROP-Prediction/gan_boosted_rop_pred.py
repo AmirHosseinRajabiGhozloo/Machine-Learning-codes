@@ -36,10 +36,10 @@ def R(true,predicted):
     R = (np.sum((true-true.mean())*(predicted-predicted.mean())))/(np.sqrt((np.sum((true-true.mean())**2))*np.sum((true-true.mean())**2)))
     return R
 
-df_14 = pd.read_excel('D:\\hassan sharifi\\thesis paper\\data\\F14-cleaned.xlsx')
+df_14 = pd.read_excel('D:\\AmirRajabi\\ROP-Pred\\data\\F14-cleaned.xlsx')
 df_14
 
-df_15 = pd.read_excel('D:\\hassan sharifi\\thesis paper\\data\\F15-cleaned.xlsx')
+df_15 = pd.read_excel('D:\\AmirRajabi\\ROP-Pred\\data\\F15-cleaned.xlsx')
 df_15
 
 data_14 = df_14.values[:,1:]
@@ -245,103 +245,3 @@ plt.plot(hist.history['loss'])
 plt.plot(hist.history['val_loss'])
 
 """# Model evaluation
-
-**on train-test**
-"""
-
-# train
-ytr_pred = model.predict(xtr).reshape(-1,1)
-mse_tr = MSE(ytr_pred,ytr.reshape(-1,1))
-rmse_tr = mse_tr**0.5
-r2_tr = R2(ytr_pred,ytr.reshape(-1,1))
-mae_tr = MAE(ytr.reshape(-1,1),ytr_pred)
-mape_tr = MAPE(ytr.reshape(-1,1),ytr_pred)
-print('MSE Train',mse_tr)
-print('RMSE Train',rmse_tr)
-print('MAE Train',mae_tr)
-print('MAPE Train',mape_tr)
-print('R Train',r2_tr)
-font = {'size'   : 15}
-matplotlib.rc('font', **font)
-plt.figure(figsize=(10,10))
-plt.subplot(211)
-plt.title('Train Set')
-plt.plot(ytr_pred,ytr.reshape(-1,1),'.b')
-plt.subplot(212)
-plt.plot(ytr.reshape(-1,1),label='True ROP')
-plt.plot(ytr_pred,'.',label='Predicted ROP')
-plt.legend()
-
-# test
-yts_pred = model.predict(xts).reshape(-1,1)
-mse_ts = MSE(yts_pred,yts.reshape(-1,1))
-rmse_ts = mse_ts**0.5
-r2_ts = R2(yts_pred,yts.reshape(-1,1))
-mae_ts = MAE(yts.reshape(-1,1),yts_pred)
-mape_ts = MAPE(yts.reshape(-1,1),yts_pred)
-print('MSE Test',mse_ts)
-print('RMSE Test',rmse_ts)
-print('MAE Test',mae_ts)
-print('MAPE Test',mape_ts)
-print('R Test',r2_ts)
-plt.figure(figsize=(10,10))
-plt.subplot(211)
-plt.title('Test Set')
-plt.plot(yts_pred,yts.reshape(-1,1),'.b')
-plt.subplot(212)
-plt.plot(yts.reshape(-1,1),label='True ROP')
-plt.plot(yts_pred,'.',label='Predicted ROP')
-plt.legend()
-
-mdic = {'t':ytr}
-savemat("matlab_matrix_tr_true_target.mat",mdic)
-mdic = {'y':ytr_pred}
-savemat("matlab_matrix_tr_pred_target.mat",mdic)
-mdic = {'t':yts}
-savemat("matlab_matrix_ts_true_target.mat",mdic)
-mdic = {'y':yts_pred}
-savemat("matlab_matrix_ts_pred_target.mat",mdic)
-
-"""**on blind set**"""
-
-df_17 = pd.read_excel('D:\\hassan sharifi\\thesis paper\\data\\F17-cleaned_short.xlsx')
-data_17 = df_17.values[:,1:]
-df_17
-
-x_blind = data_17[:,1:]
-y_blind = data_17[:,0]
-
-x_blind = x_blind.reshape(x_blind.shape + (1,))
-x_blind.shape
-
-# num
-y_blind_pred = model.predict(x_blind).reshape(-1,1)
-mse_b = MSE(y_blind_pred,y_blind.reshape(-1,1))
-rmse_b = mse_ts**0.5
-r2_b = R2(y_blind_pred,y_blind.reshape(-1,1))
-mae_b = MAE(y_blind.reshape(-1,1),y_blind_pred)
-mape_b = MAPE(y_blind.reshape(-1,1),y_blind_pred)
-print('MSE Blind:',mse_b)
-print('RMSE Blind:',rmse_b)
-print('MAE Blind',mae_b)
-print('MAPE Blind',mape_b)
-print('R Blind:',r2_b)
-plt.figure(figsize=(20,20))
-plt.subplot(211)
-plt.title('Blind Set')
-plt.plot(y_blind_pred,y_blind.reshape(-1,1),'.b')
-plt.xlabel('Predicted ROP')
-plt.ylabel('True ROP')
-plt.subplot(212)
-plt.plot(y_blind.reshape(-1,1),'-',label='True ROP')
-plt.plot(y_blind_pred,'-',label='Predicted ROP')
-plt.xlabel('Sample Index')
-plt.ylabel('Normalized ROP')
-plt.legend()
-
-address = 'D:\\hassan sharifi\\thesis paper\\models\\Res 1D-CNN.tf'
-model.save(address)
-address = 'D:\\hassan sharifi\\thesis paper\\models\\Res 1D-CNN.h5'
-model.save(address)
-
-model.summary()
